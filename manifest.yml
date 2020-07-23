@@ -1,9 +1,8 @@
 ---
 applications:
 - name: worknbeyond
-  path: build/
+  path: Home/
   instances: 1
-  buildpack: staticfile_buildpack
   memory: 256M 
 ---
 nginx:
