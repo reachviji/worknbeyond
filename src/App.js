@@ -22,9 +22,7 @@ export default class App extends Component {
       <div className="route-container">
         <Router>
           <Switch>
-            <Route path='/' component={SignInSide} exact>
-            </Route>
-            <Route path='/Home' component={LandingPage} exact>
+            <Route path='/' component={LandingPage} exact>
             </Route>
           </Switch>
         </Router>
