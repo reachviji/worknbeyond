@@ -15,26 +15,27 @@ import CardActions from '@material-ui/core/CardActions';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        padding: theme.spacing(0, 3),
+        padding: theme.spacing(0, 10),
     },
     large: {
-        width: theme.spacing(7),
-        height: theme.spacing(7),
+        width: theme.spacing(5),
+        height: theme.spacing(5),
         backgroundColor: red[500],
     },
     title: {
-        fontSize: 20,
+        fontSize: 15,
     },
     subtitle: {
-        fontSize: 16,
+        fontSize: 14,
     },
     description: {
+        margin: theme.spacing(1),
         fontSize: 12,
     },
     paper: {
-        padding: theme.spacing(3),
-        margin: theme.spacing(2),
-        maxWidth: 400,
+        padding: theme.spacing(0),
+        margin: theme.spacing(3),
+        maxWidth: 320,
     },
     img: {
         margin: 'auto',
@@ -42,17 +43,10 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '100%',
         maxHeight: '100%',
     },
-    button: {
-        background: 'linear-gradient(45deg, #2196f3 30%, #21cbf3 90%)',
-        boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .30)',
-        borderRadius: 3,
-        border: 0,
-        color: 'white',
-        height: 30,
-        padding: '0 30px',
-        justifyContent: 'center',
-        spacing: theme.spacing(2),
-
+    griditem: {
+        margin: theme.spacing(1),
+        paddingRight: theme.spacing(2),
+        flexWrap: 'wrap',
     },
 }));
 
@@ -65,16 +59,16 @@ function Alert(props) {
 
 const cads = [
     createData('VG',
-        'Vijayalakshmi',
         'Book Sharing',
+        'Vijayalakshmi',
         "Looking for someone who share similar taste as mine so that we can share our books."),
     createData('KP',
-        'Karthik P',
         'Guitar',
+        'Karthik P',
         "Boared of learning Guitar alone? Let's parctice Guitar lessons together. Lets catch up online."),
     createData('NC',
-        'Nagesh C',
         'Multiplayer online Game',
+        'Nagesh C',
         "Are you also a gamer just like me? Compete with me in this online game"),
 ];
 
@@ -93,24 +87,25 @@ export default function RecomCard() {
             <Grid container spacing={3}>
                 {cads.map((cad) => (
                     <Paper className={classes.paper} key={cad.Name}>
-                        <Grid container wrap="nowrap" spacing={2}>
+                        <Grid container className={classes.griditem} spacing={2}>
                             <Grid item>
-                                <Avatar aria-label="Name" className={classes.large}></Avatar>
+                                <Avatar aria-label="Name" className={classes.large}>{cad.AIcon}</Avatar>
                             </Grid>
                             <Grid item xs>
                                 <Typography className={classes.title}>{cad.Name}</Typography>
                                 <Typography className={classes.subtitle}>{cad.Hobby}</Typography>
-                                <br />
-                                <Typography className={classes.description}>{cad.Desc}</Typography>
                             </Grid>
                             <Grid item>
                                 <IconButton aria-label="add to favorites"><FavoriteIcon /></IconButton>
                             </Grid>
                         </Grid>
                         <Grid>
-                            <br />
+                            <Typography className={classes.description}>{cad.Desc}</Typography>
+                        </Grid>
+                        <Grid>
+
                             <CardActions>
-                                <Button variant="outlined" styles={classes.button} onClick={handleClickOpen}>Register</Button>
+                                <Button variant="outlined" onClick={handleClickOpen}>Register</Button>
                                 <Button size="small" color="primary"> Learn More</Button>
                             </CardActions>
 

@@ -15,6 +15,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.0",
     "react-dom": "^16.13.1",
+    "react-flippy": "^0.1.5",
     "react-instantsearch-dom": "^6.6.0",
     "react-native-elements": "^2.0.4",
     "react-router-dom": "^5.2.0",
@@ -25,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-prd": "cross-env GENERATE_SOURCEMAP=false react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
   }
 }

@@ -13,7 +13,9 @@ import { deepOrange } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 0,
+        width: "100%",
+        height: theme.spacing(9),
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -21,15 +23,11 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
-    large: {
-        width: theme.spacing(12),
-        height: theme.spacing(12),
-    },
     orange: {
         color: theme.palette.getContrastText(deepOrange[500]),
         backgroundColor: deepOrange[500],
-        width: theme.spacing(7),
-        height: theme.spacing(7),
+        width: theme.spacing(5),
+        height: theme.spacing(5),
     },
 }));
 

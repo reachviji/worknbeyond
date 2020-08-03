@@ -13,9 +13,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import AddIcon from '@material-ui/icons/Add';
 import RecomCard from './RecomCard';
+import HomeCard from './HomeCard';
 import RecomBar from './RecomBar';
 import HSearch from './HSearch';
-import HobTable from './HobTable';
+import HobbyTable from './HobbyTable';
 import TableContainer from '@material-ui/core/TableContainer';
 import Paper from '@material-ui/core/Paper';
 
@@ -55,9 +56,11 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
         width: '100%',
-        backgroundColor: theme.palette.background.paper,
+        height: theme.spacing(8),
+    },
+    medium: {
+        fontSize: 12,
     },
 }));
 
@@ -72,12 +75,12 @@ export default function SimpleTabs() {
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default">
-                <Tabs value={value} onChange={handleChange} textColor="primary" aria-label="Tabs">
-                    <Tab icon={<HomeIcon />} label="Work and beyond" {...a11yProps(0)} />
-                    <Tab icon={<ExploreIcon />} label="Explore Hobbies" {...a11yProps(1)} />
-                    <Tab icon={<FavoriteIcon />} label="Favourite" {...a11yProps(2)} />
-                    <Tab icon={<SportsEsportsIcon />} label="My Hobbies" {...a11yProps(3)} />
-                    <Tab icon={<AddIcon />} label="Add Hobbies" {...a11yProps(4)} />
+                <Tabs className={classes.root} value={value} onChange={handleChange} textColor="primary" aria-label="Tabs">
+                    <Tab className={classes.medium} icon={<HomeIcon fontSize="small" />} label="Work and beyond" {...a11yProps(0)} />
+                    <Tab className={classes.medium} icon={<ExploreIcon fontSize="small" />} label="Explore Hobbies" {...a11yProps(1)} />
+                    <Tab className={classes.medium} icon={<FavoriteIcon fontSize="small" />} label="Favourite" {...a11yProps(2)} />
+                    <Tab className={classes.medium} icon={<SportsEsportsIcon fontSize="small" />} label="My Hobbies" {...a11yProps(3)} />
+                    <Tab className={classes.medium} icon={<AddIcon fontSize="small" />} label="Add Hobbies" {...a11yProps(4)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
@@ -85,10 +88,7 @@ export default function SimpleTabs() {
                 <br />
                 <Grid container spacing={6}>
                     <Grid container item xs={12} spacing={3}>
-                        <RecomCard />
-                    </Grid>
-                    <Grid container item xs={12} spacing={3}>
-                        <RecomCard />
+                        <HomeCard />
                     </Grid>
                 </Grid>
             </TabPanel>
@@ -96,9 +96,7 @@ export default function SimpleTabs() {
                 <HSearch />
                 <br />
                 <TableContainer component={Paper}>
-
-
-
+                    <HobbyTable />
                 </TableContainer>
             </TabPanel>
             <TabPanel value={value} index={2}>
